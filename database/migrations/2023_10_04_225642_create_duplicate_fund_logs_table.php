@@ -14,7 +14,7 @@ return new class extends Migration
             $table->unsignedBigInteger('fund_id');
             $table->foreign('fund_id')->references('id')->on('funds');
             
-            $table->string('duplicate_name');
+            $table->string('duplicate_name')->index();
 
             $table->timestamps();
         });

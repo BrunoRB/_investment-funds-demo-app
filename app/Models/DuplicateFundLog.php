@@ -9,4 +9,7 @@ class DuplicateFundLog extends Model
 {
     use HasFactory;
 
+    public function fund() {
+        return $this->belongsTo(Fund::class);
+    }
 }
