@@ -15,6 +15,8 @@ the test hints at a web app, for which php-laravel is usually my default choice.
 
 ![ER Diagram](docs/er.png)
 
+(check `docs/er.png` in case it doesn't load here)
+
 I added two extra entities to support the app:
     
  - `alias`: simple name holder connected to the fund - a straighfoward way to allow a fund to contain multiple names in a relational model
