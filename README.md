@@ -4,9 +4,9 @@
 
 ## decisions and design
 
-## stack
+### tech stack
 
-simple php 8.2, laravel, mysql
+I kept it super simple: php 8.2, laravel, mysql
 
 the test hints at a web app, for which php-laravel is usually my default choice.  
 
@@ -64,7 +64,7 @@ Lastly, while the implementation makes use of the framework event system for sim
 
 ### How will your application work as the data set grows increasingly larger?
 
-for this particualar toy app the bottleneck will be the name duplicate checking. Every new fund/alias will trigger a scan on all the previously existing fund and alias names. Of course, here both `name` columns are indexed, so the search time will always be `O(log n)` - i.e. not that much impact (the `duplicates` endpoint is also being grouped and counted targeting an indexed field).
+for this particular toy app the bottleneck will be the name duplicate checking. Every new fund/alias will trigger a scan on all the previously existing fund and alias names. Of course, here both `name` columns are indexed, so the search time will always be `O(log n)` - i.e. not that much impact (the `duplicates` endpoint is also being grouped and counted targeting an indexed field).
 
 a real-world app will probably require a more sophisticated name comparsion (full text search), that would complicated the querying and indexing. 
 
@@ -83,14 +83,16 @@ as for the GET endpoints, they are fairly simple and simple indexing of columns 
 
 ## running
 
+you'll need composer (https://getcomposer.org/) and docker
+
 ```
-docker compose up -d
-
-docker exec -it canoe-test-laravel.test-1 /bin/bash
-
 composer install
 
-vendor/bin/phpunit
+docker compose up -d
+
+docker exec -it investment-funds-demo-app-laravel.test-1 /bin/bash
+
+vendor/bin/phpunit tests/
 
 ```
 
