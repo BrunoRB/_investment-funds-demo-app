@@ -1,15 +1,12 @@
 
 
-# canoe test
+# app demo
 
 ## decisions and design
 
 ### tech stack
 
-I kept it super simple: php 8.2, laravel, mysql
-
-the test hints at a web app, for which php-laravel is usually my default choice.  
-
+php 8.2, laravel, mysql
 
 ### data model
 
@@ -45,7 +42,7 @@ The `list` and `update` endpoints return the fund, manager data and aliases data
 
 ### duplicate name checking / service
 
-First of, for the purposes of this test I'm considing duplicate names exact string matches (case included). 
+First of, for the purposes of this app I'm considing duplicate names exact string matches (case included). 
 
 On `app/Models/Fund.php` we have listeners for the created and updated events on Funds an Aliases (the listeners are there for simplicity, we could easily move them to a separate folder/class with more time). 
 
